@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "51378020776",
+    "firebase_url": "https://expressaltitude.firebaseio.com",
+    "project_id": "expressaltitude",
+    "storage_bucket": "expressaltitude.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:51378020776:android:9eab30f54a59c45cac3d9d",
+        "android_client_info": {
+          "package_name": "com.kt.expressaltitude"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "51378020776-is99776e1gqv9se2jc6gbaitrm01b2ji.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kt.expressaltitude",
+            "certificate_hash": "62ba580159ffcb0fea7ecd76547be9b09edf1123"
+          }
+        },
+        {
+          "client_id": "51378020776-155ap180mral0lpp69u79jddrka8tt71.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhFj4uaumuf0oryRd0-l4YUCLz1jPi-D4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "51378020776-155ap180mral0lpp69u79jddrka8tt71.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
