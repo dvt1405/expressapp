@@ -1,8 +1,10 @@
 package com.kt.expressaltitude.data.entities.registrationcard
 
+import com.google.gson.annotations.SerializedName
 import com.kt.expressaltitude.data.utils.RegistrattionCardUtils
 
 class TextElements {
+    @SerializedName("startTitle")
     var startTitle = RegistrattionCardUtils.START_TITLE
     var startActionPrompt = RegistrattionCardUtils.START_ACTION_PROMT
     var signingTitle = RegistrattionCardUtils.SIGNING_TITLE

@@ -1,5 +1,5 @@
 package com.kt.expressaltitude.domain
 
-interface AppConfigDataSource {
+interface LocalAppConfigDataSource {
     fun save(appConfig: String, fileName: String)
 }

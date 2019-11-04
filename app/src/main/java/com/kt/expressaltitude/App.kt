@@ -1,4 +1,14 @@
 package com.kt.expressaltitude
 
-class App {
+import android.app.Application
+
+class App : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+    }
+
+    fun get() : Application {
+        return this
+    }
 }

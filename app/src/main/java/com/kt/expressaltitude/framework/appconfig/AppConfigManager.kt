@@ -1,5 +1,9 @@
 package com.kt.expressaltitude.framework.appconfig
 
-class AppConfigManager {
+import com.kt.expressaltitude.domain.LocalAppConfigDataSource
 
+class AppConfigManager:LocalAppConfigDataSource {
+    override fun save(appConfig: String, fileName: String) {
+
+    }
 }

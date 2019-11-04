@@ -2,7 +2,7 @@ package com.kt.expressaltitude.framework.appconfig
 
 import com.kt.expressaltitude.domain.TokenLocalDataSource
 
-class UniqueDeviceIdDataSource: TokenLocalDataSource {
+class DeviceIdDataSource: TokenLocalDataSource {
 
     override fun isAccesTokenExist(): Boolean? {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

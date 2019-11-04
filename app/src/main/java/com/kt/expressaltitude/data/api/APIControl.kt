@@ -2,6 +2,7 @@ package com.kt.expressaltitude.data.api
 
 import com.google.gson.GsonBuilder
 import com.kt.expressaltitude.Constants
+import com.kt.expressaltitude.data.api.model.request.DeviceRequest
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.CallAdapter
@@ -22,7 +23,7 @@ class APIControl(env: String) {
     }
 
     companion object {
-        var INSTANCE: APIControl? = null
+        private var INSTANCE: APIControl? = null
         fun getInstance(env: String): APIControl {
             if (INSTANCE != null) {
                 INSTANCE = APIControl(env)
@@ -51,7 +52,7 @@ class APIControl(env: String) {
         registrationCardAPI = Retrofit.Builder()
             .client(client)
             .addConverterFactory(GsonConverterFactory.create(gson))
-            .baseUrl(Constants.REGISTRATION_CARD_BASE_URL[env])
+            .baseUrl(Constants.REGISTRATION_CARD_BASE_URL[env]!!)
             .build()
             .create(API::class.java)
         return registrationCardAPI

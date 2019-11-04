@@ -1,4 +1,9 @@
 package com.kt.expressaltitude.domain.usecase
 
-class PostDevice {
+import androidx.lifecycle.LiveData
+import com.kt.expressaltitude.data.api.model.response.DeviceResponse
+import com.kt.expressaltitude.domain.repository.AccessTokenRepository
+
+class PostDevice(private val accessTokenRepository: AccessTokenRepository) {
+    operator fun invoke(): LiveData<DeviceResponse?> = accessTokenRepository.getDeviceStatus()
 }

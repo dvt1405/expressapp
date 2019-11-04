@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ExpressAltitude</string>
+    <string name="btn_connect">Connect</string>
+    <string name="connectCode">_ _ _ _</string>
 </resources>

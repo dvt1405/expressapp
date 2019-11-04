@@ -1,8 +1,10 @@
 package com.kt.expressaltitude.data.api
 
 import com.kt.expressaltitude.Constants
+import com.kt.expressaltitude.data.api.model.request.DeviceRequest
 import com.kt.expressaltitude.data.api.model.request.GuestAsArrivalBodyRequest
 import com.kt.expressaltitude.data.api.model.response.DeviceItemResponse
+import com.kt.expressaltitude.data.api.model.response.DeviceResponse
 import com.kt.expressaltitude.data.api.model.response.GuestDepartureResponse
 import com.kt.expressaltitude.data.api.model.response.ResponsePutResource
 import com.kt.expressaltitude.data.entities.guestdepartures.GuestDeparture
@@ -15,43 +17,43 @@ interface API {
     @GET(Constants.REGISTRATION_CARD_PATH)
     fun getRegistrationCardAppStyle(): Call<RegistrationCard>
 
-    @GET("/express-app/{id}")
+    @GET("${Constants.REGISTRATION_CARD_PATH}{id}")
     fun getRegistrationCardAppStyle(@Path("id") id: String): Call<RegistrationCard>
 
-    @POST("/express-app/")
+    @POST("${Constants.REGISTRATION_CARD_PATH}")
     fun createRegistrationCard(): Call<RegistrationCard>
 
-    @PUT("/express-app/{id}")
+    @PUT("${Constants.REGISTRATION_CARD_PATH}{id}")
     fun updateDetailRegistrationCard(@Path("id") id: String): Call<Void>
 
-    @DELETE("/express-app/{id}")
+    @DELETE("${Constants.REGISTRATION_CARD_PATH}{id}")
     fun delete(@Path("id") id: String): Call<Void>
 
-    @GET("/express-app/{id}/resources")
+    @GET("${Constants.REGISTRATION_CARD_PATH}{id}/resources")
     fun getResources(@Path("id") id: String): Call<List<Resources>>
 
-    @PUT("/express-app/{id}/resources/{id}")
+    @PUT("${Constants.REGISTRATION_CARD_PATH}{id}/resources/{id}")
     fun putResources(@Path("id") idRegistrationCard: String, @Path("id") idResources: String): Call<ResponsePutResource>
 
-    @POST("/express-app/{id}/update-resources")
+    @POST("${Constants.REGISTRATION_CARD_PATH}{id}/update-resources")
     fun postUpdateResources(@Path("id") id: String)
 
     @POST("/private/express-app/update-resources")
     fun postUpdateResources()
 
-    @GET("/express-app/{id}/devices/")
+    @GET("${Constants.REGISTRATION_CARD_PATH}{id}/devices/")
     fun getDevices(@Path("id") id: String): Call<List<DeviceItemResponse>>
 
-    @POST("/express-app/{id}/devices/{deviceId}")
+    @POST("${Constants.REGISTRATION_CARD_PATH}{id}/devices/{deviceId}")
     fun addDeviceToDevicesArray(@Path("id") id: String, @Path("deviceId") deviceId: String)
 
-    @DELETE("/express-app/{id}/devices/{deviceId}")
+    @DELETE("${Constants.REGISTRATION_CARD_PATH}{id}/devices/{deviceId}")
     fun deleteDeviceItem(@Path("id") id: String, @Path("deviceId") deviceId: String)
 
-    @POST("/express-app/{id}/logout")
+    @POST("${Constants.REGISTRATION_CARD_PATH}{id}/logout")
     fun logout(@Path("id") id: String)
 
-    @POST("/express-app/{id}/refresh")
+    @POST("${Constants.REGISTRATION_CARD_PATH}{id}/refresh")
     fun refresh(@Path("id") id: String)
 
 
@@ -89,11 +91,17 @@ interface API {
     @DELETE("/guest-departures/{deptId}")
     fun deleteGuestDeparture(@Path("deptId")deptId: String): Call<GuestDeparture>
 
-    @GET("/guest-departures/details")
+    @GET(Constants.GUEST_DEPARTURE_PATH)
     fun getDepartures(): Call<GuestDepartureResponse>
 
 //    @POST("/guest-departures/bill/sign")
 //    fun postGuestDeparture: Call<GuestDeparture>
+
+    @POST("${Constants.REGISTER_DEVICE_PATH}/token")
+    fun postDevice(@Body device: DeviceRequest): Call<DeviceResponse>
+
+    @GET("${Constants.REGISTER_DEVICE_PATH}/{id}/token")
+    fun getDeviceAccessToken(@Path("id") id: String): Call<DeviceResponse>
 
 
 }
