@@ -1,11 +1,10 @@
 package com.kt.expressaltitude.framework.appconfig
 
-import com.kt.expressaltitude.domain.TokenDataSource
+import com.kt.expressaltitude.domain.TokenLocalDataSource
 
-class TokenDataSourceImpl : TokenDataSource{
+class UniqueDeviceIdDataSource: TokenLocalDataSource {
 
-
-    override fun check() {
+    override fun isAccesTokenExist(): Boolean? {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
@@ -21,9 +20,7 @@ class TokenDataSourceImpl : TokenDataSource{
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun update() {
+    override fun update(token: String) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-
-
 }
