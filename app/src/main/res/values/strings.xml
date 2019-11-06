@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">ExpressAltitude</string>
     <string name="btn_connect">Connect</string>
-    <string name="connectCode">_ _ _ _</string>
+    <string name="connectCode">_  _  _  _</string>
+    <string name="textUnderButtonConnectLine1">To continue please enter the above code in the </string>
+    <string name="textUnderButtonConnectLine2">"\u0022"Add / Manage Device"\u0022" dialog in Registration Card</string>
+    <string name="defaultTextValue">Some text here</string>
+
 </resources>

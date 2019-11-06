@@ -25,7 +25,7 @@ class APIControl(env: String) {
     companion object {
         private var INSTANCE: APIControl? = null
         fun getInstance(env: String): APIControl {
-            if (INSTANCE != null) {
+            if (INSTANCE == null) {
                 INSTANCE = APIControl(env)
                 INSTANCE?.let {
                     it.buildDepartureAPI()
@@ -44,7 +44,6 @@ class APIControl(env: String) {
         var client = OkHttpClient.Builder().addInterceptor {
             var newRequest = it.request()
                 .newBuilder()
-                .addHeader("", "")
                 .build()
             it.proceed(newRequest)
         }.addInterceptor(interceptor).build()
@@ -63,7 +62,6 @@ class APIControl(env: String) {
         var client = OkHttpClient.Builder().addInterceptor {
             var newRequest = it.request()
                 .newBuilder()
-                .addHeader("", "")
                 .build()
             it.proceed(newRequest)
         }.addInterceptor(interceptor).build()
@@ -82,7 +80,6 @@ class APIControl(env: String) {
         var client = OkHttpClient.Builder().addInterceptor {
             var newRequest = it.request()
                 .newBuilder()
-                .addHeader("", "")
                 .build()
             it.proceed(newRequest)
         }.addInterceptor(interceptor).build()
@@ -101,7 +98,6 @@ class APIControl(env: String) {
         var client = OkHttpClient.Builder().addInterceptor {
             var newRequest = it.request()
                 .newBuilder()
-                .addHeader("", "")
                 .build()
             it.proceed(newRequest)
         }.addInterceptor(interceptor).build()
@@ -120,7 +116,6 @@ class APIControl(env: String) {
         var client = OkHttpClient.Builder().addInterceptor {
             var newRequest = it.request()
                 .newBuilder()
-                .addHeader("", "")
                 .build()
             it.proceed(newRequest)
         }.addInterceptor(interceptor).build()

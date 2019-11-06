@@ -77,5 +77,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'appcompat-v7'
     }
     implementation 'com.squareup.okhttp3:logging-interceptor:4.2.2'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
 }

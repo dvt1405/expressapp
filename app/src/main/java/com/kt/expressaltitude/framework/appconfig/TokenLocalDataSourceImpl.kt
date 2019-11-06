@@ -6,25 +6,15 @@ import com.kt.expressaltitude.App
 import com.kt.expressaltitude.Constants
 import com.kt.expressaltitude.domain.TokenLocalDataSource
 
-class TokenLocalDataSourceImpl private constructor() : TokenLocalDataSource {
+class TokenLocalDataSourceImpl(private val context: Context) : TokenLocalDataSource {
+
 
     private var refs: SharedPreferences
     private var accessToken: String? = null
     val token: String?
-    get() = accessToken
+        get() = accessToken
     init {
-        refs = App().get()
-            .getSharedPreferences(Constants.SHARE_PREFERANCE_TOKEN_NAME, Context.MODE_PRIVATE)
-    }
-
-    companion object {
-        private var INSTANCE: TokenLocalDataSourceImpl? = null
-        fun getInstance(): TokenLocalDataSourceImpl {
-            if (INSTANCE == null) {
-                INSTANCE = TokenLocalDataSourceImpl()
-            }
-            return INSTANCE!!
-        }
+        refs = context.getSharedPreferences(Constants.SHARE_PREFERANCE_TOKEN_NAME,0)
     }
 
 
@@ -33,10 +23,15 @@ class TokenLocalDataSourceImpl private constructor() : TokenLocalDataSource {
         val token: String? = refs.getString(Constants.SHARE_PREFERANCE_TOKEN_NAME, "")
         if (token.isNullOrEmpty()) {
             check = false
-        } else{
+        } else {
             accessToken = token
         }
         return check
+    }
+
+    override fun getAccessToken(): String? {
+        if (isAccesTokenExist()) return accessToken
+        return null
     }
 
     override fun save(token: String) {

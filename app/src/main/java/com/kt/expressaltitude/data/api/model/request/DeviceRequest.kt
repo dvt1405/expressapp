@@ -13,7 +13,7 @@ class DeviceRequest(uniqueDeviceId: String) {
 
     init {
         this.uniqueDeviceId = uniqueDeviceId
-        this.device = "Android " + Build.VERSION.SDK_INT
+        this.device = Build.DEVICE
         this.os = "Android " + Build.VERSION.SDK_INT
         this.systemId = "displayApp"
         this.permissions = arrayOf(

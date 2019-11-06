@@ -1,6 +1,7 @@
 package com.kt.expressaltitude.framework.appconfig
 
 import android.os.Handler
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.iid.FirebaseInstanceId
@@ -12,6 +13,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import timber.log.Timber
+import java.sql.Time
 
 class AccessTokenDataSourceImpl private constructor(enviroment: String) : AccessTokenDataSource {
     private var env: String
@@ -37,10 +39,13 @@ class AccessTokenDataSourceImpl private constructor(enviroment: String) : Access
     override fun postDevice(): LiveData<DeviceResponse?> {
         var deviceLiveData = MutableLiveData<DeviceResponse?>()
         FirebaseInstanceId.getInstance().instanceId.addOnCompleteListener {
-            if (!it.isSuccessful) return@addOnCompleteListener
+            if (!it.isSuccessful) {
+                return@addOnCompleteListener
+            }
             val instanceResult = it.result
             if (instanceResult == null) return@addOnCompleteListener
             val uniqueId = instanceResult!!.token
+            Timber.e(uniqueId)
             APIControl.getInstance(env = env).deviceAuthAPI
                 .postDevice(DeviceRequest(uniqueId))
                 .enqueue(object : Callback<DeviceResponse> {
@@ -78,6 +83,15 @@ class AccessTokenDataSourceImpl private constructor(enviroment: String) : Access
                     var deviceResponse: DeviceResponse? = response.body()
 
                     deviceResponse?.let {
+
+                        if(timeout < 120) {
+                            when(it.status) {
+                                "pending" -> {
+                                    getAccessToken(id,timeout+1)
+                                    Thread.sleep(1000)
+                                }
+                            }
+                        }
                         deviceLiveData.postValue(it)
                     }
                 }

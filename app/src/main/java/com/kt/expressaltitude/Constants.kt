@@ -14,9 +14,13 @@ object Constants {
     const val REF_COUNTRY_PATH = "countries"
     const val SHARE_PREFERANCE_TOKEN_NAME = "Token"
     const val SHARE_PREFERANCE_CONFIG_NAME = "App Config"
+    const val SHARE_PREFERANCE_ENVIROMENT_NAME = "Enviroment"
+    const val CONFIG_FILE_NAME = "AppConfig"
+    const val BUILD_VERSION_CODE = BuildConfig.VERSION_CODE.toString()
+    const val BUILD_VERSION_NAME = BuildConfig.VERSION_NAME
 
-    val ENVIROMENT = arrayOf("UAT", "DEV", "PROD")
-
+    val ENVIROMENT = arrayOf("UAT / Training", "DEV", "Production / Live")
+    var CURRENT_ENVIROMENT = ENVIROMENT[0]
     val DEVICE_BASE_URL = mapOf(
         ENVIROMENT[0] to "https://auth-device.dev.altitudehq.com/",
         ENVIROMENT[1] to "https://api.uat.altitudehq.com/",
@@ -53,4 +57,5 @@ object Constants {
         ENVIROMENT[2] to "https://api.altitudehq.com/"
     )
 
+    
 }

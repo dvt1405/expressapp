@@ -3,8 +3,11 @@ package com.kt.expressaltitude.framework.appconfig
 import com.kt.expressaltitude.domain.TokenLocalDataSource
 
 class DeviceIdDataSource: TokenLocalDataSource {
+    override fun getAccessToken(): String? {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
-    override fun isAccesTokenExist(): Boolean? {
+    override fun isAccesTokenExist(): Boolean {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

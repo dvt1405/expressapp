@@ -97,10 +97,10 @@ interface API {
 //    @POST("/guest-departures/bill/sign")
 //    fun postGuestDeparture: Call<GuestDeparture>
 
-    @POST("${Constants.REGISTER_DEVICE_PATH}/token")
+    @POST("${Constants.REGISTER_DEVICE_PATH}")
     fun postDevice(@Body device: DeviceRequest): Call<DeviceResponse>
 
-    @GET("${Constants.REGISTER_DEVICE_PATH}/{id}/token")
+    @GET("${Constants.REGISTER_DEVICE_PATH}/{id}")
     fun getDeviceAccessToken(@Path("id") id: String): Call<DeviceResponse>
 
 

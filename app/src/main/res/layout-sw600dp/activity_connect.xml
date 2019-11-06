@@ -4,13 +4,133 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="version"
+            type="String" />
+        <variable
+            name="enviroment"
+            type="String" />
+        <variable
+            name="connectViewModel"
+            type="com.kt.expressaltitude.presentation.ui.connect.ConnectViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.ui.connect.ConnectActivity">
+        tools:context=".MainActivity"
+        android:background="@color/colorBackgroundConnectScreen"
+        >
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:layout_marginBottom="14dp"
+            android:src="@drawable/connect_screen_logo"
+            app:layout_constraintBottom_toTopOf="@+id/connectCode"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/defaultTextValue" />
+
+        <TextView
+            android:id="@+id/connectCode"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="78dp"
+            android:gravity="center"
+            android:text="@string/connectCode"
+            android:textColor="@color/colorBackgroundButtonWhite"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/btnConnect"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textAllCaps="true"
+            />
+
+        <Button
+            android:id="@+id/btnConnect"
+            android:layout_width="468dp"
+            android:layout_height="75dp"
+            android:background="@drawable/button"
+            android:elevation="8dp"
+            android:gravity="center"
+            android:text="@string/btn_connect"
+            android:textAllCaps="false"
+            android:textSize="30sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewUnderBtnConnect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:gravity="center|bottom"
+            android:text="@string/textUnderButtonConnectLine1"
+            android:textColor="@color/colorBackgroundButtonWhite"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnConnect"
+            android:fontFamily="Roboto"/>
+
+        <TextView
+            android:id="@+id/textViewUnderBtnConnectLine2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBackgroundButtonWhite"
+            android:text="@string/textUnderButtonConnectLine2"
+            android:gravity="center|top"
+            android:textSize="25sp"
+            android:fontFamily="Roboto"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewUnderBtnConnect" />
+
+        <TextView
+            android:layout_width="@dimen/browser_actions_context_menu_max_width"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/textVersionConnectScreen"
+            android:text="@{version}"
+            android:textColor="@color/colorBackgroundButtonWhite"
+            android:textSize="25sp"
+            android:gravity="start|center"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            />
+
+        <TextView
+            android:id="@+id/enviromentSetting"
+            android:layout_width="@dimen/browser_actions_context_menu_max_width"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{enviroment}"
+            android:textColor="@color/colorBackgroundButtonWhite"
+            android:textSize="25sp"
+            android:gravity="end|center"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:layout_marginBottom="14dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnConnect"
+            app:layout_constraintEnd_toEndOf="@+id/btnConnect"
+            app:layout_constraintTop_toTopOf="@+id/btnConnect"
+            android:elevation="8dp"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
